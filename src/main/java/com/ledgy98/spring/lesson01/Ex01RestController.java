@@ -9,44 +9,46 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RequestMapping("/lesson01/ex01")
-@RestController// @Controller + @ResponseBody
+@RestController  //  @Controller + @ResponseBody
 public class Ex01RestController {
-	
+
 	@RequestMapping("/3")
 	public String printString() {
 		return "@RestController 사용";
 	}
 	
 	@RequestMapping("/4")
-	public Map<String, String> printMap(){
-		Map<String , String>map = new HashMap<>();
+	public Map<String, String> printMap() {
+		Map<String, String> map = new HashMap<>();
 		
 		map.put("김인규", "강사");
 		map.put("유재석", "개그맨");
 		map.put("아이유", "가수");
-		map.put("이병철", "기업인");
 		return map;
 	}
 	
 	@RequestMapping("/5")
 	public Data printData() {
 		Data data = new Data();
-		
 		data.setId(1);
-		data.setName("colleen");
-		
+		data.setName("김인규");
+		// "{\"id\":"+ data.getId();
 		return data;
 	}
 	
-	@ResponseMapping("/6")
-	public ResponseEntity <Data> entity(){
+	// 리스폰스 엔티디 
+	@RequestMapping("/6")
+	public ResponseEntity<Data> entity() {
+		
 		Data data = new Data();
-		
 		data.setId(1);
-		data.setName("colleen");
+		data.setName("김인규");
 		
-		ResponseEntity<Data> responseEntity = new ResponseEntity<>(data, HttpStatus.OK);
+		ResponseEntity<Data> responseEntity = new ResponseEntity<>(data, HttpStatus.INTERNAL_SERVER_ERROR);
 		
 		return responseEntity;
 	}
+	
+	
+	
 }
