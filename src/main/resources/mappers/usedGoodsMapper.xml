@@ -3,7 +3,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
- <mapper namespace="com.hagulu.spring.lesson02.dao.UsedGoodsDAO">
+ <mapper namespace="com.ledgy98.spring.lesson02.dao.UsedGoodsDAO">
  	
  	<!--  usedGoods 데이터 모두 가져오기 쿼리 -->
  	<select id="selectUsedGoodsList" resultType="com.ledgy98.spring.lesson02.model.UsedGoods">
