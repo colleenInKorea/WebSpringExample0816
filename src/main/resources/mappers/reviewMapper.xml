@@ -65,6 +65,7 @@
  		)
  	
  	</insert>
+ 	
  	<update id="updateReviewById" parameterType="map">
  		UPDATE 
  			`new_review`
@@ -74,6 +75,7 @@
  			`id` = #{id}
  	
  	</update>
+ 	
  	<delete id="deleteReviewById" parameterType="int">
  		DELETE
  		FROM

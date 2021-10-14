@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace="com.ledgy98.spring.lesson04.dao.NewStudentDAO">
+	<insert id="insertNewStudent" 
+	parameterType="com.ledgy98.spring.lesson04.model.NewStudent"
+	useGeneratedKeys="true" keyProperty="id">
+		INSERT INTO 
+			`new_student`
+		(
+			`name`
+			, `phoneNumber`
+			, `email`
+			, `dreamJob`
+			, `createdAt`
+			, `updatedAt`
+		)
+		VALUES 
+		(
+			#{name}
+			, #{phoneNumber}
+			, #{email}
+			, #{dreamJob}
+			, now()
+			, now()
+		 )
+	</insert>
+	<select id="selectLastUser" resultType="com.hagulu.spring.lesson04.model.NewUser">
+ 		SELECT 
+ 			`id`
+ 			, `name`
+			, `yyyymmdd`
+			, `email`
+			, `introduce`
+			, `createdAt`
+			, `updatedAt`
+		FROM
+			`new_user`
+		ORDER BY `id` DESC
+		LIMIT 1
+ 	</select>
+ 	
+ 	<select id="selectCountName" resultType="int" parameterType="string">
+ 		SELECT 
+ 			COUNT(1)
+		FROM
+			`new_user`
+		WHERE
+			`name` = #{name}
+ 	</select>
+ 
+
+</mapper>
